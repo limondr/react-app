@@ -17,26 +17,24 @@ class LoftTaxi extends React.Component {
     }
 
     defaultProperties = {
-        navigateTo(page) {
-            this.setState({currentPage: page})
+        navigateTo: (page) => {
+            this.setState({ currentPage: page })
         }
+    }
+
+    PAGES = {
+        registration: <Registration defaultProperties={this.defaultProperties} />,
+        entrance: <Entrance defaultProperties={this.defaultProperties} />,
+        account: <Account defaultProperties={this.defaultProperties} />
     }
 
     render() {
         return (
-            <React.Fragment>
-               <main>
-                   <section>
-                       {
-                        {
-                            registration: <Registration defaultProperties={this.defaultProperties}/>,
-                            entrance: <Entrance defaultProperties={this.defaultProperties}/>,
-                            account: <Account defaultProperties={this.defaultProperties}/>
-                        }[this.state.currentPage]
-                       }
-                   </section>
-               </main>
-            </React.Fragment>
+                <main>
+                    <section>
+                        {this.PAGES[this.state.currentPage]}
+                    </section>
+                </main>
         )
     }
 }

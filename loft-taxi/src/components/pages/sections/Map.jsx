@@ -8,11 +8,7 @@ class Map extends React.Component {
         }
     }
     render() {
-        return (
-            <React.Fragment>
-                
-            </React.Fragment>
-        )
+        return null;
     }
 }
 export default Map;

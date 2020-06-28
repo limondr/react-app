@@ -10,7 +10,6 @@ class Entrance extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
                 <div className="main_reg_entr">
                     <div className="r_e_logo"></div>
                     <div className="block_entrance">
@@ -25,7 +24,6 @@ class Entrance extends React.Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
         )
     }
 }

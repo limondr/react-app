@@ -10,7 +10,6 @@ class Registration extends React.Component {
     }
     render() {
         return (
-            <React.Fragment>
                 <div className="main_reg_entr">
                     <div className="r_e_logo"></div>
                     <div className="block_registration">
@@ -31,7 +30,6 @@ class Registration extends React.Component {
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
         )
     }
 }

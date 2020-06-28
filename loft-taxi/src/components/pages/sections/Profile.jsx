@@ -11,7 +11,6 @@ class Profile extends React.Component {
     }
     render() {
         return (
-            <React.Fragment>
                 <div className="main_reg_entr">
                     <div className="card_plashka">
                         <div className="h1_pl">Профиль</div>
@@ -42,7 +41,6 @@ class Profile extends React.Component {
                         <div className="btn-profile" onClick={() => this.props.defaultProperties.changeSection('map')}>Сохранить</div>
                     </div>
                 </div>
-            </React.Fragment>
         )
     }
 }

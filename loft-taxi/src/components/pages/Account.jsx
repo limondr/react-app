@@ -13,14 +13,18 @@ class Account extends React.Component {
     }
 
     defaultProperties = {
-        changeSection(section) {
-            this.setState({currentSection: section})
+        changeSection: (section) => {
+            this.setState({ currentSection: section })
         }
+    }
+
+    PAGES = {
+        map: <Map defaultProperties={this.defaultProperties} />,
+        profile: <Profile defaultProperties={this.defaultProperties} />
     }
 
     render() {
         return (
-            <React.Fragment>
                 <div className="main_map">
                     <div className="map_nav">
                         <div className="nav_logo"></div>
@@ -31,15 +35,9 @@ class Account extends React.Component {
                         </div>
                     </div>
                     <div className="account_section">
-                        {
-                            {
-                                map: <Map defaultProperties={this.defaultProperties}/>,
-                                profile: <Profile defaultProperties={this.defaultProperties}/>
-                            }[this.state.currentSection]
-                        }
+                        {this.PAGES[this.state.currentSection]}
                     </div>
                 </div>
-            </React.Fragment>
         )
     }
 }

@@ -227,3 +227,29 @@ input#standard-required  {
     color: rgb(0, 0, 0);
     cursor: pointer;
 }
+
+
+.account_section {
+    height: 1080px;
+}
+/*MAP*/
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.canvas.mapboxgl-canvas {
+    height: 100vh !important;
+}
+/* .map-wrapper {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+} */

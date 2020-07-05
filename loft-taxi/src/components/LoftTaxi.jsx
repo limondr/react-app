@@ -4,8 +4,15 @@ import './css/style.css';
 import './fonts/stylesheet.css'
 
 import Registration from './pages/Registration';
-import Entrance from './pages/Entrance';
-import Account from './pages/Account';
+import EntranceWithAuth from './pages/Entrance';
+import AccountWithAuth from './pages/Account';
+import { withAuth } from '../AuthContext'
+
+const PAGES = {
+    registration: (props) => <Registration {...props}/>,
+    entrance: (props) => <EntranceWithAuth {...props}/>,
+    account: (props) => <AccountWithAuth {...props}/>
+}
 
 class LoftTaxi extends React.Component {
     constructor(props) {
@@ -16,26 +23,30 @@ class LoftTaxi extends React.Component {
         this.defaultProperties.navigateTo = this.defaultProperties.navigateTo.bind(this);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.isLoggedIn !== this.props.isLoggedIn) {
+          if(this.props.isLoggedIn) this.setState({ currentPage: "account" })
+          else this.setState({ currentPage: "entrance" })
+        }
+      }
+
     defaultProperties = {
         navigateTo: (page) => {
-            this.setState({ currentPage: page })
+            if (page === "account" && !this.props.isLoggedIn)
+                this.setState({ currentPage: "entrance" })
+            else
+                this.setState({ currentPage: page })
         }
-    }
-
-    PAGES = {
-        registration: <Registration defaultProperties={this.defaultProperties} />,
-        entrance: <Entrance defaultProperties={this.defaultProperties} />,
-        account: <Account defaultProperties={this.defaultProperties} />
     }
 
     render() {
         return (
                 <main>
                     <section>
-                        {this.PAGES[this.state.currentPage]}
+                        {PAGES[this.state.currentPage]({defaultProperties: this.defaultProperties})}
                     </section>
                 </main>
         )
     }
 }
-export default LoftTaxi;
+export default withAuth(LoftTaxi);

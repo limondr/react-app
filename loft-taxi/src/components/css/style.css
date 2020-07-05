@@ -1,0 +1,229 @@
+.main_reg_entr {
+    width: 1920px;
+    height: 1080px;
+    background-image: url(../img/fon.png);
+    background-repeat: no-repeat;
+    background-color: #323232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.r_e_logo {
+    width: 156px;
+    height: 37px;
+    background: url(../img/logo.png) no-repeat;
+    margin-right: 215px;
+}
+.block_entrance {
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    width: 502px;
+    height: 473px;
+}
+.block_registration {
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    width: 503px;
+    height: 566px;
+}  
+.b_e_pad {
+    padding-left: 52px;
+    padding-right: 59px;
+}
+.b-h2 {
+    font-size: 36px;
+    font-family: "Adobe Clean Bold";
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+    text-align: left;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+.b-h4 {
+    font-size: 16px;
+    font-family: "Adobe Clean Regular";
+    color: rgb(80, 80, 80);
+    text-align: left;
+    margin-bottom: 47px;
+}  
+ .color-link {
+     color: #1473e6;
+     cursor: pointer;
+ } 
+
+ /*Стилизация Инпутов*/
+
+ .MuiFormControl-root.MuiTextField-root {
+    width: 100%;
+}
+.inpt-style {
+    margin-bottom: 43px;
+}
+input#standard-required  {
+    font-size: 15px;
+}
+.button-entr {
+    border-radius: 4px;
+    background-color: rgb(255, 198, 23);
+    width: 161px;
+    height: 51px;
+    font-family: "Adobe Clean Regular";
+    font-size: 21px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: auto;
+    cursor: pointer;
+}
+.button-entr:hover, .btn-profile:hover {
+    background-color: rgb(238, 182, 12);
+}  
+.button-reg {
+    border-radius: 4px;
+    background-color: rgb(255, 198, 23);
+    width: 248px;
+    height: 51px;
+    font-family: "Adobe Clean Regular";
+    font-size: 21px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: auto;
+    cursor: pointer;
+}
+.button-reg:hover {
+    background-color: rgb(238, 182, 12);
+}
+.style-bb {
+    width: 185px;
+    margin-right: 15px;
+}
+.style-kk {
+    width: 185px;
+}
+.grid-box {
+    display: flex;
+}
+.main_map {
+    width: 1920px;
+    height: 1080px;
+    background: url(../img/map.png) no-repeat;
+}
+.map_nav {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 1px 3.6px 0.4px rgba(0, 0, 0, 0.11);
+    width: 1920px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.nav_logo {
+    width: 154px;
+    height: 37px;
+    background: url(../img/logo2.png) no-repeat;
+    margin-left: 374px;
+}
+.nav_list {
+    display: flex;
+    margin-left: auto;
+    margin-right: 357px;
+}
+.style_list_nav {
+    border-radius: 2px;
+    width: 75px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.style_list_nav:hover {
+    background-color: rgb(242, 242, 242);
+}
+.card_plashka {
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    width: 945px;
+    height: 567px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+} 
+.h1_pl {
+    font-family: "Adobe Clean Bold";
+    color: rgb(50, 50, 50);
+    font-size: 36px;
+    margin-top: 63px;
+}
+.h4_pl {
+    font-size: 16px;
+    font-family: "Adobe Clean Regular";
+    color: rgb(80, 80, 80);
+    margin-top: 10px;
+}
+.card_box {
+    display: flex;
+    flex-direction: row;
+}
+.card {
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+    width: 382px;
+    height: 230px;
+    margin-top: 49px;    
+}
+.card:first-child {
+    margin-right: 31px;
+}
+.logo_card {
+    width: 55px;
+    height: 36px;
+    background: url(../img/master-cart.png);
+    margin-left: auto;
+    margin-right: 17px;
+    margin-top: 18px;
+}
+.box_cart_otsp {
+    padding-left: 31px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.num_cart{
+    font-size: 15px;
+    font-family: "Adobe Clean Regular";
+    color: rgb(116, 116, 116);
+    margin-bottom: 10px;
+}
+.last_cart_info{
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    width: 115px;
+}
+.last_card {
+    padding-top: 59px;
+    padding-left: 31px;
+    padding-right: 30px;
+}
+.btn-profile {
+    border-radius: 4px;
+    background-color: rgb(255, 198, 23);
+    width: 195px;
+    height: 51px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 46px;
+    font-size: 21px;
+    font-family: "Adobe Clean Regular";
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import Map from './sections/Map';
 import Profile from './sections/Profile';
 import { withAuth } from '../../AuthContext'
+import PropTypes from 'prop-types';
 
 const PAGES = {
     map: (props) => <Map {...props}/>,
@@ -16,6 +17,14 @@ class Account extends React.Component {
         }
 
         this.defaultProperties.changeSection = this.defaultProperties.changeSection.bind(this);
+    }
+
+    static propTypes = {
+        defaultProperties: PropTypes.shape({
+            navigateTo: PropTypes.func.isRequired
+        }).isRequired,
+        logOut: PropTypes.func.isRequired,
+        isLoggedIn: PropTypes.bool.isRequired
     }
 
     unauthenticate = () => {

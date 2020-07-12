@@ -7,6 +7,7 @@ import Registration from './pages/Registration';
 import EntranceWithAuth from './pages/Entrance';
 import AccountWithAuth from './pages/Account';
 import { withAuth } from '../AuthContext'
+import PropTypes from 'prop-types';
 
 const PAGES = {
     registration: (props) => <Registration {...props}/>,
@@ -23,10 +24,17 @@ class LoftTaxi extends React.Component {
         this.defaultProperties.navigateTo = this.defaultProperties.navigateTo.bind(this);
     }
 
+    static propTypes = {
+        isLoggedIn: PropTypes.bool.isRequired,
+    }
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.isLoggedIn !== this.props.isLoggedIn) {
-          if(this.props.isLoggedIn) this.setState({ currentPage: "account" })
-          else this.setState({ currentPage: "entrance" })
+          if(this.props.isLoggedIn) {
+            this.setState({ currentPage: "account" })
+          } else {
+            this.setState({ currentPage: "entrance" })
+          }
         }
       }
 

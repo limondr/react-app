@@ -3,10 +3,17 @@ import { fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import EntranceWithAuth from '../components/pages/Entrance';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../store'
 
 test('test login form', () => {
   const { container } = render(
-    <EntranceWithAuth />
+    <BrowserRouter>
+      <Provider store={store}>
+        <EntranceWithAuth />
+      </Provider>
+    </BrowserRouter>
   );
   const loginButton = container.querySelector('div[class="button-entr"]');
   expect(loginButton).toBeInTheDocument();

@@ -1,13 +1,12 @@
 import React from 'react';
 import Map from './sections/Map';
-import Profile from './sections/Profile';
-import { withAuth } from '../../AuthContext'
+import ProfileWithAuth from './sections/Profile';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {logOut} from '../../actions';
+import { PrivateRoute } from '../PrivateRoute';
+import { Switch, Link } from 'react-router-dom';
 
-const PAGES = {
-    map: (props) => <Map {...props}/>,
-    profile: (props) => <Profile {...props}/>
-}
 
 class Account extends React.Component {
     constructor(props) {
@@ -33,7 +32,7 @@ class Account extends React.Component {
 
     defaultProperties = {
         changeSection: (section) => {
-            if(!this.props.isLoggedIn)
+            if(!this.props.isLoggedIn)               
                 this.props.defaultProperties.navigateTo("entrance")
             else
                 this.setState({ currentSection: section })
@@ -46,19 +45,35 @@ class Account extends React.Component {
                     <div className="map_nav">
                         <div className="nav_logo"></div>
                         <div className="nav_list">
-                            <div className="style_list_nav" onClick={() => this.defaultProperties.changeSection("map")}>Карта</div>
-                            <div className="style_list_nav" onClick={() => this.defaultProperties.changeSection("profile")}>Профиль </div>
-                            <div className="style_list_nav" onClick={() => this.unauthenticate()}>Выйти</div>
+                            <Link to="/account/map">
+                            <div className="style_list_nav">Карта</div>
+                            </Link>
+                            <Link to="/account/profile">
+                            <div className="style_list_nav">Профиль </div>
+                            </Link>
+                            <Link to="/" onClick={() => this.unauthenticate()}>
+                            <div className="style_list_nav">Выйти</div>
+                            </Link>
                         </div>
                     </div>
                     <div className="account_section">
-                        {PAGES[this.state.currentSection]({defaultProperties: this.defaultProperties})}
+                        <Switch>
+                            <PrivateRoute path="/account/map" component={Map}/>
+                            <PrivateRoute path="/account/profile" component={ProfileWithAuth}/>
+                        </Switch>
                     </div>
                 </div>
         )
     }
 }
 
-const AccountWithAuth = withAuth(Account);
+const mapStateToProps = state => ({
+    isLoggedIn: state.auth.isLoggedIn
+})
+
+const AccountWithAuth = connect(
+    mapStateToProps,
+    { logOut }
+)(Account);
 
 export default AccountWithAuth;

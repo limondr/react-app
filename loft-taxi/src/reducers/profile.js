@@ -10,7 +10,6 @@ const initialState = {
 export default function(state = initialState, action) {
     switch(action.type) {
         case SAVE_CARD_DATA: {
-            console.log('SAVE_CARD_DATA', action)
             return { 
                 cardNumber: action.payload.cardNumber,
                 expiryDate: action.payload.expiryDate,

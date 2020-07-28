@@ -1,7 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { submitcard, getcard } from '../../../actions';
 
@@ -21,12 +20,15 @@ class Profile extends React.Component {
     }
 
     static propTypes = {
-        defaultProperties: PropTypes.shape({
-            changeSection: PropTypes.func.isRequired
-        }).isRequired
+        AUTH_TOKEN: PropTypes.string.isRequired,
+        cardNumber: PropTypes.string.isRequired,
+        expiryDate: PropTypes.string.isRequired,
+        cardName: PropTypes.string.isRequired,
+        cvc: PropTypes.string.isRequired,
+        submitcard: PropTypes.func.isRequired,
+        getcard: PropTypes.func.isRequired
     }
     submitcard = () => {
-        console.log(this.props.AUTH_TOKEN)
         this.props.submitcard({
             cardNumber: this.state.cardnumber,
             expiryDate: this.state.carddate,
@@ -41,7 +43,6 @@ class Profile extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div className="main_reg_entr">
                 <div className="card_plashka">
@@ -70,9 +71,7 @@ class Profile extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <Link to="/account/map">
-                        <div className="btn-profile" onClick={() => this.submitcard()}>Сохранить</div>
-                    </Link>
+                    <div className="btn-profile" onClick={() => this.submitcard()}>Сохранить</div>
                 </div>
             </div>
         )

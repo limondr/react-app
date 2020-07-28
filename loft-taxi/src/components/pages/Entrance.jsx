@@ -1,6 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { authenticate } from '../../actions';
 import { Link, Redirect } from 'react-router-dom';
@@ -14,12 +14,10 @@ class Entrance extends React.Component {
         }
     }
 
-    // static propTypes = {
-    //     defaultProperties: PropTypes.shape({
-    //         navigateTo: PropTypes.func.isRequired
-    //     }).isRequired,
-    //     logIn: PropTypes.func.isRequired,
-    // }
+    static propTypes = {
+        authenticate: PropTypes.func.isRequired,
+        isLoggedIn: PropTypes.bool.isRequired
+    }
 
     authenticate = () => {
         this.props.authenticate(this.state.username, this.state.password)

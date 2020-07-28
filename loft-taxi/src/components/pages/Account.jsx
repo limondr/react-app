@@ -14,29 +14,15 @@ class Account extends React.Component {
         this.state = {
             currentSection: "map"
         }
-
-        this.defaultProperties.changeSection = this.defaultProperties.changeSection.bind(this);
     }
 
     static propTypes = {
-        defaultProperties: PropTypes.shape({
-            navigateTo: PropTypes.func.isRequired
-        }).isRequired,
         logOut: PropTypes.func.isRequired,
         isLoggedIn: PropTypes.bool.isRequired
     }
 
     unauthenticate = () => {
         this.props.logOut();
-    }
-
-    defaultProperties = {
-        changeSection: (section) => {
-            if(!this.props.isLoggedIn)               
-                this.props.defaultProperties.navigateTo("entrance")
-            else
-                this.setState({ currentSection: section })
-        }
     }
 
     render() {

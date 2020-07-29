@@ -1,7 +1,9 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { withAuth } from '../../AuthContext'
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { authenticate } from '../../actions';
+import { Link, Redirect } from 'react-router-dom';
 
 class Entrance extends React.Component {
     constructor(props) {
@@ -13,14 +15,12 @@ class Entrance extends React.Component {
     }
 
     static propTypes = {
-        defaultProperties: PropTypes.shape({
-            navigateTo: PropTypes.func.isRequired
-        }).isRequired,
-        logIn: PropTypes.func.isRequired,
+        authenticate: PropTypes.func.isRequired,
+        isLoggedIn: PropTypes.bool.isRequired
     }
 
     authenticate = () => {
-        this.props.logIn(this.state.username, this.state.password)
+        this.props.authenticate(this.state.username, this.state.password)
     }
 
     handleValueChange(event) {
@@ -30,19 +30,24 @@ class Entrance extends React.Component {
 
     render() {
         return (
+            this.props.isLoggedIn ?
+                <Redirect to="/account/map"/>
+            :
             <div className="main_reg_entr">
                 <div className="r_e_logo"></div>
                 <div className="block_entrance">
                     <div className="b_e_pad">
                         <div className="b-h2">Войти</div>
-                        <div className="b-h4">Новый пользователь? <span className="color-link" onClick={() => this.props.defaultProperties.navigateTo('registration')} >Зарегистрируйтесь</span></div>
+                        <Link to="/registration">
+                        <div className="b-h4">Новый пользователь? <span className="color-link">Зарегистрируйтесь</span></div>
+                        </Link>
                         <div className="inpt-style">
                             <TextField required id="standard-required" name="username" label="Имя пользователя" placeholder="Имя пользователя"
                                 value={this.state.username} onChange={(e) => this.handleValueChange(e)} />
                         </div>
                         <TextField type="password" id="standard-required" name="password" label="Пароль" placeholder="Пароль"
                             value={this.state.password} onChange={(e) => this.handleValueChange(e)} />
-                        <div className="button-entr" onClick={() => this.authenticate()}>Войти</div>
+                            <div className="button-entr" onClick={() => this.authenticate()}>Войти</div>
                     </div>
                 </div>
             </div>
@@ -50,6 +55,13 @@ class Entrance extends React.Component {
     }
 }
 
-const EntranceWithAuth = withAuth(Entrance);
+const mapStateToProps = state => ({
+    isLoggedIn: state.auth.isLoggedIn
+})
 
-export default EntranceWithAuth;
+const EntranceWithAuth = connect(
+    mapStateToProps,
+    { authenticate }
+)(Entrance);
+
+export default EntranceWithAuth;          

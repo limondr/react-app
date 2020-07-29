@@ -3,18 +3,25 @@ import { fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import Profile from '../components/pages/sections/Profile';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../store'
 
 test('test card form', () => {
   const { container } = render(
-    <Profile />
+    <BrowserRouter>
+      <Provider store={store}>
+        <Profile />
+      </Provider>
+    </BrowserRouter>
   );
-  const cardNumber = container.querySelector('input[name="card-number"]');
+  const cardNumber = container.querySelector('input[name="cardnumber"]');
   expect(cardNumber).toBeInTheDocument();
-  const cardDate = container.querySelector('input[name="card-date"]')
+  const cardDate = container.querySelector('input[name="carddate"]')
   expect(cardDate).toBeInTheDocument();
-  const cardHolder = container.querySelector('input[name="card-holder"]')
+  const cardHolder = container.querySelector('input[name="cardholder"]')
   expect(cardHolder).toBeInTheDocument();
-  const cardCVC = container.querySelector('input[name="card-cvc"]')
+  const cardCVC = container.querySelector('input[name="cardcvc"]')
   expect(cardCVC).toBeInTheDocument();
 
   expect(cardNumber.value).toBe('')

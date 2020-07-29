@@ -3,10 +3,17 @@ import { fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import Registration from '../components/pages/Registration';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../store'
 
 test('test login form', () => {
   const { container } = render(
-    <Registration />
+    <BrowserRouter>
+      <Provider store={store}>
+        <Registration />
+      </Provider>
+    </BrowserRouter>
   );
   const regButton = container.querySelector('div[class="button-reg"]');
   expect(regButton).toBeInTheDocument();

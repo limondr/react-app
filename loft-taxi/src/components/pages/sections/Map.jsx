@@ -1,14 +1,7 @@
 import React, {Component} from 'react';
 import mapboxgl from 'mapbox-gl';
-import PropTypes from 'prop-types';
 
 export class Map extends Component {
-    static propTypes = {
-        defaultProperties: PropTypes.shape({
-            changeSection: PropTypes.func.isRequired
-        }).isRequired
-    }
-
     map = null;
     mapContainer = React.createRef();
 

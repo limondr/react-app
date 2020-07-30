@@ -3,7 +3,7 @@ import Map from './sections/Map';
 import ProfileWithAuth from './sections/Profile';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {logOut} from '../../actions';
+import {logOut, getcard} from '../../actions';
 import { PrivateRoute } from '../PrivateRoute';
 import { Switch, Link } from 'react-router-dom';
 
@@ -59,7 +59,7 @@ const mapStateToProps = state => ({
 
 const AccountWithAuth = connect(
     mapStateToProps,
-    { logOut }
+    { logOut, getcard }
 )(Account);
 
 export default AccountWithAuth;

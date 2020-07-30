@@ -30,3 +30,21 @@ export const getCardData = async (token) => {
         `${BASE_URL}/card?token=${token}`
         ).then(res => res.json())
 }
+
+export const serverRegistration = async (email, password, name, surname) => {
+    return fetch(
+        `${BASE_URL}/register`,
+        {
+            method: 'POST',
+            headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+        body: JSON.stringify( {email: email, password: password, name: name, surname: surname} )
+        }).then(res => res.json())
+}
+
+export const serverGetAddressList = async () => {
+    return fetch(`${BASE_URL}/addressList`).then(res => res.json())
+}
+
+export const serverGetRoute = async (address1, address2) => {
+    return fetch(`${BASE_URL}/route?address1=${address1}&address2=${address2}`).then(res => res.json())
+}

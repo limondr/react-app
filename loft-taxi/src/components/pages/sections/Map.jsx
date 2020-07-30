@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { getRoute, getAddressList } from '../../../actions';
+import FormAfterOrderTaxi from './mapcomponents/FormAfterOrderTaxi';
+import FormBeforeOrderTaxi from './mapcomponents/FormBeforeOrderTaxi';
+import FormOrderTaxi from './mapcomponents/FormOrderTaxi';
 
 export class Map extends Component {
 
@@ -187,106 +189,22 @@ export class Map extends Component {
             <div data-testid="map" className="map" ref={this.mapContainer}>
                 <div className="taxi_box">
                     <div className="taxi_pad">
-                        {this.props.billing.cardNumber !== '' && this.props.billing.cardName !== '' && this.props.billing.expiryDate !== '' ? (
-
-                            this.state.call_taxi ? 
-
+                        {this.props.billing.cardNumber !== '' && this.props.billing.cardName !== '' && this.props.billing.expiryDate !== '' ? 
                             (
-                                <div className="start_taxi">
-                                    <div className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-                                        <h1 className="MuiTypography-root jss405 MuiTypography-h4 MuiTypography-alignLeft">Заказ размещён</h1>
-                                    </div>
-                                    <div className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-                                        <p className="MuiTypography-root jss406 MuiTypography-body1">Ваше такси уже едет к вам. Прибудет приблизительно через 10 минут.</p>
-                                    </div>
-                                    <div className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-                                            <div className="box_btn_taxxxi slk_ll btn_taxi_yellow" onClick={() => this.clickCallTaxi(false)}>
-                                                <div>Сделать новый заказ</div>
-                                            </div>
-                                    </div>
-                                </div>
-                            )
-
-                                : (
-                                    <div className="start_taxi">
-                                        <div className="start_taxi">
-                                            <div className="search_adress" onClick={() => this.handleAddressDropdown(0)}>
-                                                <input type="text" name="address1_value" className="search_adress_input" placeholder="Откуда" value={this.state.address1_value}
-                                                    onChange={(e) => this.handleValueChange(e)}
-                                                />
-
-                                                {this.state.address1_value === "" ? null :
-                                                    <div className="del_value" onClick={() => this.clearInput(0)}></div>
-                                                }
-
-                                                <div className="box_for_button">
-                                                    <div className="bottom_arrow"></div>
-                                                </div>
-                                                {this.state.address1_drop ? (
-                                                    <div className="drop_down_spisok">
-                                                        <ul>
-                                                            {this.filterInputs(0).map((address, index) =>
-                                                                <li key={index} onClick={() => this.handleAddressValue(address, 0)}>{address}</li>
-                                                            )}
-                                                        </ul>
-                                                    </div>
-                                                ) : null}
-                                            </div>
-                                            <div className="otsp_40px"></div>
-                                            <div className="search_adress" onClick={() => this.handleAddressDropdown(1)}>
-                                                <input type="text" name="address2_value" className="search_adress_input" placeholder="Куда" value={this.state.address2_value}
-                                                    onChange={(e) => this.handleValueChange(e)}
-                                                />
-                                                {this.state.address2_value === "" ? null :
-                                                    <div className="del_value" onClick={() => this.clearInput(1)}></div>
-                                                }
-
-                                                <div className="box_for_button">
-                                                    <div className="bottom_arrow"></div>
-                                                </div>
-                                                {this.state.address2_drop ? (
-                                                    <div className="drop_down_spisok style_spisok_2">
-                                                        <ul>
-                                                            {this.filterInputs(1).map((address, index) =>
-                                                                <li key={index} onClick={() => this.handleAddressValue(address, 1)}>{address}</li>
-                                                            )}
-                                                        </ul>
-                                                    </div>
-                                                ) : null}
-
-                                            </div>
-
-                                            {
-                                                this.state.address1_value === "" || this.state.address2_value === "" ?
-                                                    <div className="btn_taxi_grey box_btn_taxxxi">
-                                                        <div>Выберите адреса</div>
-                                                    </div>
-                                                    :
-                                                    <div className="box_btn_taxxxi btn_taxi_yellow" onClick={() => { this.getRoute(); this.clickCallTaxi(true) }}>
-                                                        <div>Вызвать такси</div>
-                                                    </div>
-                                            }
-                                        </div>
-                                    </div>
-                                )
-                        )
-                            : (
-                                <div className="start_taxi">
-                                    <div className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-                                        <h1 className="MuiTypography-root jss405 MuiTypography-h4 MuiTypography-alignLeft">Заполните платежные данные</h1>
-                                    </div>
-                                    <div className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-                                        <p className="MuiTypography-root jss406 MuiTypography-body1">Укажите информацию о банковской карте, чтобы сделать заказ.</p>
-                                    </div>
-                                    <div className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12">
-                                        <Link to="/account/profile">
-                                            <div className="box_btn_taxxxi slk_ll btn_taxi_yellow">
-                                                <div>Перейти в профиль</div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div>
-                            )
+                                this.state.call_taxi ?
+                                    <FormAfterOrderTaxi clickCallTaxi={this.clickCallTaxi.bind(this)} /> 
+                                    : 
+                                    <FormOrderTaxi 
+                                        handleAddressDropdown={this.handleAddressDropdown.bind(this)}
+                                        handleValueChange={this.handleValueChange.bind(this)}
+                                        clearInput={this.clearInput.bind(this)}
+                                        filterInputs={this.filterInputs.bind(this)}
+                                        handleAddressValue={this.handleAddressValue.bind(this)}
+                                        getRoute={this.getRoute.bind(this)}
+                                        clickCallTaxi={this.clickCallTaxi.bind(this)}
+                                        data={this.state}
+                                    />
+                            ) : <FormBeforeOrderTaxi />
                         }
 
                     </div>

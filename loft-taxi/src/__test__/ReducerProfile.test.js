@@ -6,10 +6,10 @@ describe ("profile reducer", () => {
         expect(
             reducer(undefined, {})
         ).toEqual({
-            cardNumber: '0000 0000 0000 0000',
-            expiryDate: '11/11',
-            cardName: 'TEST NAME',
-            cvc: '123'
+            cardNumber: localStorage.getItem('cardNumber') || '',
+            expiryDate: localStorage.getItem('expiryDate') || '',
+            cardName: localStorage.getItem('cardName') || '',
+            cvc: ''
         })
     })
 

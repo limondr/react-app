@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../store'
 
-test('test login form', () => {
+test('test registration form', () => {
   const { container } = render(
     <BrowserRouter>
       <Provider store={store}>
@@ -21,7 +21,7 @@ test('test login form', () => {
   expect(email).toBeInTheDocument();
   const name = container.querySelector('input[name="name"]')
   expect(name).toBeInTheDocument();
-  const lastname = container.querySelector('input[name="lastname"]')
+  const lastname = container.querySelector('input[name="surname"]')
   expect(lastname).toBeInTheDocument();
   const password = container.querySelector('input[name="password"]')
   expect(password).toBeInTheDocument();

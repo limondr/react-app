@@ -16,7 +16,7 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getcard(this.props.AUTH_TOKEN)
+        this.props.getcard(this.props.AUTH_TOKEN);
     }
 
     static propTypes = {
@@ -28,6 +28,7 @@ class Profile extends React.Component {
         submitcard: PropTypes.func.isRequired,
         getcard: PropTypes.func.isRequired
     }
+
     submitcard = () => {
         this.props.submitcard({
             cardNumber: this.state.cardnumber,
@@ -37,6 +38,7 @@ class Profile extends React.Component {
             token: this.props.AUTH_TOKEN
         })
     }
+
     handleValueChange(event) {
         const { name, value } = event.target;
         this.setState({ [name]: value })

@@ -34,7 +34,6 @@ export default function FormOrderTaxi({useDispatchHook = useDispatch, disableVal
     const handleValueChange = (event, index) => {
         event.persist();
         const { textContent } = event.target;
-        console.log(textContent, index)
         switch (index) {
             case 0:
                 set_address1_value(textContent)

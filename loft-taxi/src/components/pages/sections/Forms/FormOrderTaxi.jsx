@@ -61,11 +61,8 @@ export default function FormOrderTaxi({useDispatchHook = useDispatch, disableVal
         }
     }
 
-    const convertArrayToObject = (array, key) => {
-        return array.reduce(function(result, item, index) {
-            result.push({[key]: item});
-            return result;
-        }, [])
+    const convertArrayToArrayOfObjects = (array, key) => {
+        return array.map(item => Object.assign({}, { [key]: item}))
     };
 
     const onSubmit = ({address1_value, address2_value}) => {
@@ -78,7 +75,7 @@ export default function FormOrderTaxi({useDispatchHook = useDispatch, disableVal
                 <Autocomplete
                     id="combo-box-demo"
                     className="search_adress_input"
-                    options={convertArrayToObject(filterInputs(0), "title")}
+                    options={convertArrayToArrayOfObjects(filterInputs(0), "title")}
                     placeholder="Откуда"
                     getOptionLabel={(option) => option.title}
                     getOptionSelected={(option, value) => option.title === value.title}
@@ -93,7 +90,7 @@ export default function FormOrderTaxi({useDispatchHook = useDispatch, disableVal
                 <Autocomplete
                     id="combo-box-demo"                    
                     className="search_adress_input"
-                    options={convertArrayToObject(filterInputs(1), "title")}
+                    options={convertArrayToArrayOfObjects(filterInputs(1), "title")}
                     placeholder="Куда"
                     getOptionLabel={(option) => option.title}
                     getOptionSelected={(option, value) => option.title === value.title}

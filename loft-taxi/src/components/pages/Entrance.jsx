@@ -35,7 +35,7 @@ class Entrance extends React.Component {
             this.props.isLoggedIn ?
                 <Redirect to="/account/map"/>
             :
-            <div className="main_reg_entr">
+            <div className="main_entrence">
                 <div className="r_e_logo"></div>
                 <div className="block_entrance">
                     <div className="b_e_pad">

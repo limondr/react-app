@@ -31,10 +31,10 @@ class Registration extends React.Component {
 
     render() {
         return (
-            <div className="main_reg_entr">
+            <div className="main_entrence">
                 <div className="r_e_logo"></div>
                 <div className="block_registration">
-                    <div className="b_e_pad">
+                    <div className="reg_b_e_pad">
                         <div className="b-h2">Регистрация</div>
                         <Link to="/">
                             <div className="b-h4">Уже зарегистрировались? <span className="color-link" >Войти</span></div>

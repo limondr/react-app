@@ -25,7 +25,8 @@ export default function RegistrationForm({useDispatchHook = useDispatch}) {
     }
 
     return (
-    <form onSubmit={handleSubmit(onSubmit)} className="login_form">
+    <form onSubmit={handleSubmit(onSubmit)} className="reg_form">
+        <div className="box_for_reg">
         <div className="inpt-style">
             <TextField
                 inputProps={{'data-testid': 'registration-email'}}                  
@@ -75,7 +76,8 @@ export default function RegistrationForm({useDispatchHook = useDispatch}) {
             error={!!errors.password}
             helperText={ errors.password && errors.password.message}
         />
-        <button type="submit" className="login_submit" data-testid="registration-submit">
+        </div>
+        <button type="submit" className="reg_submit" data-testid="registration-submit">
             <div className="button-reg">Зарегистрироваться</div>
         </button>
     </form>

@@ -1,9 +1,10 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { authenticate } from '../../actions';
 import { Link, Redirect } from 'react-router-dom';
+import LoginForm from './sections/Forms/LoginForm';
+
 
 class Entrance extends React.Component {
     constructor(props) {
@@ -18,7 +19,8 @@ class Entrance extends React.Component {
         authenticate: PropTypes.func.isRequired,
         isLoggedIn: PropTypes.bool.isRequired
     }
-
+    
+    
     authenticate = () => {
         this.props.authenticate(this.state.username, this.state.password)
     }
@@ -41,13 +43,10 @@ class Entrance extends React.Component {
                         <Link to="/registration">
                         <div className="b-h4">Новый пользователь? <span className="color-link">Зарегистрируйтесь</span></div>
                         </Link>
-                        <div className="inpt-style">
-                            <TextField required id="standard-required" name="username" label="Имя пользователя" placeholder="Имя пользователя"
-                                value={this.state.username} onChange={(e) => this.handleValueChange(e)} />
-                        </div>
-                        <TextField type="password" id="standard-required" name="password" label="Пароль" placeholder="Пароль"
-                            value={this.state.password} onChange={(e) => this.handleValueChange(e)} />
-                            <div className="button-entr" onClick={() => this.authenticate()}>Войти</div>
+                        <LoginForm
+                            data={this.state}
+                            handleValueChange={this.handleValueChange.bind(this)}
+                        />                     
                     </div>
                 </div>
             </div>
@@ -64,4 +63,4 @@ const EntranceWithAuth = connect(
     { authenticate }
 )(Entrance);
 
-export default EntranceWithAuth;          
+export default EntranceWithAuth;  

@@ -1,16 +1,15 @@
 import {SAVE_CARD_DATA} from '../actions.js'
 
 const initialState = {
-    cardNumber: localStorage.getItem('cardNumber') || '',
-    expiryDate: localStorage.getItem('expiryDate') || '',
-    cardName: localStorage.getItem('cardName') || '',
+    cardNumber: '',
+    expiryDate: '',
+    cardName: '',
     cvc: ''
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
         case SAVE_CARD_DATA: {
-            console.log(action)
             localStorage.setItem('cardNumber', action.payload.cardNumber || '');
             localStorage.setItem('expiryDate', action.payload.expiryDate || '');
             localStorage.setItem('cardName', action.payload.cardName || '');

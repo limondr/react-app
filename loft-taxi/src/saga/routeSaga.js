@@ -12,7 +12,7 @@ export function* getRouteSaga(action) {
             console.log('Координаты были не найдены');
         }
     } catch(error) {
-        console.log('Произошла непредвиденная ошибка');
+        console.log('Произошла непредвиденная ошибка', error);
     }
 }
 

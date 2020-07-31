@@ -29,7 +29,7 @@ describe("paymentSaga", () => {
         it("submit card through api", async () => {
             const dispatched = await recordSaga(
                 sendCardProfileSaga,
-                submitcard("card", "date", "cardname", "cvc", "token")
+                submitcard("card", "date", "cardname", "cvc")
             );
 
             expect(dispatched).toEqual([

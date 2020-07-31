@@ -5,18 +5,12 @@ import { connect } from 'react-redux'
 import { getRoute, getAddressList } from '../../../actions';
 import FormAfterOrderTaxi from './mapcomponents/FormAfterOrderTaxi';
 import FormBeforeOrderTaxi from './mapcomponents/FormBeforeOrderTaxi';
-import FormOrderTaxi from './mapcomponents/FormOrderTaxi';
+import FormOrderTaxi from './Forms/FormOrderTaxi';
 
 export class Map extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
-            show: true,
-            address1_value: '',
-            address2_value: '',
-            address1_drop: false,
-            address2_drop: false,
             call_taxi: false,
         }
     }
@@ -25,7 +19,6 @@ export class Map extends Component {
     mapContainer = React.createRef();
 
     componentDidMount() {
-        console.log(this.props.billing)
         this.props.getAddressList();
         mapboxgl.accessToken = 'pk.eyJ1IjoibmlreXM5IiwiYSI6ImNrYzlmanhwZzFrb3kycnRpM3d5eTkzbTUifQ.EU29cAFsaxFF5TFg7hoc7w'
 
@@ -55,7 +48,10 @@ export class Map extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.coordinates !== this.props.coordinates) {
-            this.handleRoute(this.props.coordinates)
+            if(this.props.coordinates !== []) {
+                this.clickCallTaxi(true)
+                this.handleRoute(this.props.coordinates)
+            }
         }
     }
 
@@ -106,81 +102,12 @@ export class Map extends Component {
         }
     }
 
-    handleAddressDropdown(index) {
-        switch (index) {
-            case 0:
-                if (this.state.address1_drop === false) {
-                    this.setState({ address1_drop: true, address2_drop: false })
-                } else {
-                    this.setState({ address1_drop: false })
-                }
-                break;
-            case 1:
-                if (this.state.address2_drop === false) {
-                    this.setState({ address2_drop: true, address1_drop: false })
-                } else {
-                    this.setState({ address2_drop: false })
-                }
-                break;
-            default:
-                return;
-        }
-    }
-
-    handleAddressValue(address, index) {
-        switch (index) {
-            case 0:
-                this.setState({ address1_value: address })
-                break;
-            case 1:
-                this.setState({ address2_value: address })
-                break;
-            default:
-                return;
-        }
-    }
-
-    handleValueChange(event) {
-        const { name, value } = event.target;
-        this.setState({ [name]: value })
-    }
-
-    clearInput(index) {
-        switch (index) {
-            case 0:
-                this.setState({ address1_value: '' })
-                break;
-            case 1:
-                this.setState({ address2_value: '' })
-                break;
-            default:
-                return;
-        }
-    }
-
     getRoute = () => {
         this.props.getRoute(this.state.address1_value, this.state.address2_value)
     }
 
-    filterInputs(index) {
-        switch (index) {
-            case 0:
-                return this.props.addresses.filter((e) => {
-                    return e !== this.state.address2_value && e.toLowerCase().indexOf(this.state.address1_value.toLowerCase()) > -1;
-                })
-            case 1:
-                return this.props.addresses.filter((e) => {
-                    return e !== this.state.address1_value && e.toLowerCase().indexOf(this.state.address2_value.toLowerCase()) > -1;
-                })
-            default:
-                return;
-        }
-    }
-
     clickCallTaxi(value){   
         this.clearRoute()
-        this.clearInput(0)
-        this.clearInput(1)
         this.setState({call_taxi: value})
     }
 
@@ -194,16 +121,7 @@ export class Map extends Component {
                                 this.state.call_taxi ?
                                     <FormAfterOrderTaxi clickCallTaxi={this.clickCallTaxi.bind(this)} /> 
                                     : 
-                                    <FormOrderTaxi 
-                                        handleAddressDropdown={this.handleAddressDropdown.bind(this)}
-                                        handleValueChange={this.handleValueChange.bind(this)}
-                                        clearInput={this.clearInput.bind(this)}
-                                        filterInputs={this.filterInputs.bind(this)}
-                                        handleAddressValue={this.handleAddressValue.bind(this)}
-                                        getRoute={this.getRoute.bind(this)}
-                                        clickCallTaxi={this.clickCallTaxi.bind(this)}
-                                        data={this.state}
-                                    />
+                                    <FormOrderTaxi/>
                             ) : <FormBeforeOrderTaxi />
                         }
 

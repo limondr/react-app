@@ -1,6 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects'
 import { REGISTRATION, registationSuccess, registationFail} from '../actions'
 import { serverRegistration } from  '../api'
+import history from '../history';
 
 export function* registrationSagaRes (action){
     const {email, password, name, surname} = action.payload;
@@ -9,6 +10,8 @@ export function* registrationSagaRes (action){
         const success = yield call(serverRegistration, email, password, name, surname)
         if(success) {
             yield put(registationSuccess())
+            console.log('registration', email, password, name, surname)
+            history.push('/');
             console.log('Регистрация прошла успешно')
         }else {
             yield put(registationFail())

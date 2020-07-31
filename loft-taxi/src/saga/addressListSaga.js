@@ -11,7 +11,7 @@ export function* getAdressListSaga(action) {
             console.log('Адрес не загрузился');
         }
     } catch(error) {
-        console.log('Произошла непредвиденная ошибка');
+        console.log('Произошла непредвиденная ошибка', error);
     }
 }
 

@@ -8,8 +8,9 @@ import EntranceWithAuth from './pages/Entrance';
 import AccountWithAuth from './pages/Account';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute'
+import history from '../history'
 
 
 class LoftTaxi extends React.Component {
@@ -24,27 +25,17 @@ class LoftTaxi extends React.Component {
         isLoggedIn: PropTypes.bool.isRequired,
     }
 
-    componentDidUpdate(prevProps, prevState) {/* 
-        if (prevProps.isLoggedIn !== this.props.isLoggedIn) {
-            console.log(this.props)
-          if(this.props.isLoggedIn) {
-            this.setState({ currentPage: "account" })
-          } else {
-            this.setState({ currentPage: "entrance" })
-          }
-        } */
-      }
-
-
     render() {
         return (
                 <main>
                     <section>
+                    <Router history={history}>
                        <Switch>
                            <Route exact path="/" component={EntranceWithAuth} />
-                           <Route path="/registration" component={Registration} />
-                           <PrivateRoute  path="/account" component={AccountWithAuth} />
+                           <Route exact path="/registration" component={Registration} />
+                           <PrivateRoute path="/account" component={AccountWithAuth} />
                        </Switch>
+                    </Router>
                     </section>
                 </main>
         )

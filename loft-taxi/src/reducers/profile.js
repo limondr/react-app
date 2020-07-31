@@ -1,9 +1,9 @@
 import {SAVE_CARD_DATA} from '../actions.js'
 
 const initialState = {
-    cardNumber: localStorage.getItem('cardNumber') || '',
-    expiryDate: localStorage.getItem('expiryDate') || '',
-    cardName: localStorage.getItem('cardName') || '',
+    cardNumber: '',
+    expiryDate: '',
+    cardName: '',
     cvc: ''
 }
 

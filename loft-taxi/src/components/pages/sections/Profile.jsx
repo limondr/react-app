@@ -1,17 +1,17 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { submitcard, getcard } from '../../../actions';
+import { getcard } from '../../../actions';
+import ProfileForm from './Forms/ProfileForm';
 
 class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            cardnumber: "",
-            carddate: "",
-            cardholder: "",
-            cardcvc: "",
+            cardNumber: "",
+            expiryDate: "",
+            cardName: "",
+            cvc: "",
         }
     }
 
@@ -25,18 +25,7 @@ class Profile extends React.Component {
         expiryDate: PropTypes.string.isRequired,
         cardName: PropTypes.string.isRequired,
         cvc: PropTypes.string.isRequired,
-        submitcard: PropTypes.func.isRequired,
         getcard: PropTypes.func.isRequired
-    }
-
-    submitcard = () => {
-        this.props.submitcard({
-            cardNumber: this.state.cardnumber,
-            expiryDate: this.state.carddate,
-            cardName: this.state.cardholder,
-            cvc: this.state.cardcvc,
-            token: this.props.AUTH_TOKEN
-        })
     }
 
     handleValueChange(event) {
@@ -48,32 +37,10 @@ class Profile extends React.Component {
         return (
             <div className="main_reg_entr">
                 <div className="card_plashka">
-                    <div className="h1_pl">Профиль</div>
-                    <div className="h4_pl">Способ оплаты</div>
-                    <div className="card_box">
-                        <div className="card">
-                            <div className="logo_card"></div>
-                            <div className="box_cart_otsp">
-                                <span className="num_cart">Номер карты:</span>
-                                <TextField required name="cardnumber" id="standard-required" placeholder={this.props.cardNumber} value={this.state.cardnumber} onChange={(e) => this.handleValueChange(e)} />
-                                <div className="last_cart_info">
-                                    <span className="num_cart">Срок действия:</span>
-                                    <TextField required name="carddate" id="standard-required" placeholder={this.props.expiryDate} value={this.state.carddate} onChange={(e) => this.handleValueChange(e)} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="last_card">
-                                <span className="num_cart">Имя владельца:</span>
-                                <TextField required name="cardholder" id="standard-required" placeholder={this.props.cardName} value={this.state.cardholder} onChange={(e) => this.handleValueChange(e)} />
-                                <div className="last_cart_info">
-                                    <span className="num_cart">CVC:</span>
-                                    <TextField type="password" name="cardcvc" id="standard-required" placeholder="***" value={this.state.cardcvc} onChange={(e) => this.handleValueChange(e)} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="btn-profile" onClick={() => this.submitcard()}>Сохранить</div>
+                    <ProfileForm 
+                        data={this.state}
+                        handleValueChange={this.handleValueChange.bind(this)}
+                    />
                 </div>
             </div>
         )
@@ -90,7 +57,7 @@ const mapStateToProps = state => ({
 
 const ProfileWithAuth = connect(
     mapStateToProps,
-    { submitcard, getcard }
+    { getcard }
 )(Profile);
 
 export default ProfileWithAuth;

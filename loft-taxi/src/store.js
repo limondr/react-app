@@ -9,7 +9,7 @@ import { routeSaga } from './saga/routeSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
-export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware ))
+export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(authSaga);
 sagaMiddleware.run(registrationSaga)

@@ -2,6 +2,11 @@ a {
     text-decoration: none;
     color: #000;
 }
+button {
+    background: none;
+    border: none;
+    outline: none;
+}
 .main_reg_entr {
     width: 1920px;
     height: 1080px;
@@ -34,6 +39,7 @@ a {
 .b_e_pad {
     padding-left: 52px;
     padding-right: 59px;
+    height: 87%;
 }
 .b-h2 {
     font-size: 36px;
@@ -62,7 +68,7 @@ a {
     width: 100%;
 }
 .inpt-style {
-    margin-bottom: 43px;
+    margin-bottom: 25px;
 }
 input#standard-required  {
     font-size: 15px;
@@ -77,10 +83,18 @@ input#standard-required  {
     color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    margin-left: auto;
+    justify-content: center;;
     cursor: pointer;
+    margin-bottom: 7%;
+}
+.login_submit {
+    margin-top: auto;
+}
+.login_form {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .button-entr:hover, .btn-profile:hover {
     background-color: rgb(238, 182, 12);
@@ -204,13 +218,19 @@ input#standard-required  {
     font-size: 15px;
     font-family: "Adobe Clean Regular";
     color: rgb(116, 116, 116);
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    margin-bottom: 1px;
+    margin-top: 10px;
 }
 .last_cart_info{
-    margin-top: 34px;
+    /* margin-top: 34px;
     display: flex;
     flex-direction: column;
-    width: 115px;
+    width: 115px; */
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+    width: 140px;
 }
 .last_card {
     padding-top: 59px;
@@ -340,7 +360,6 @@ input#standard-required  {
     display: flex;
     padding: 0;
     width: 100%;
-    border-bottom: 1px solid #999;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -429,4 +448,7 @@ input#standard-required  {
     height: 10px;
     margin-right: 11px;
     cursor: pointer;
+}
+.heigh_taxi_oder {
+    height: 42px !important;
 }

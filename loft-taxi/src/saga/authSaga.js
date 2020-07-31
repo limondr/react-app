@@ -17,7 +17,7 @@ export function* authenticateSaga(action){
         
     } catch (error) {
         yield put(loginFail(error))
-        console.log("Произошла непредвиденная ошибка");
+        console.log("Произошла непредвиденная ошибка", error);
     }
 }
 

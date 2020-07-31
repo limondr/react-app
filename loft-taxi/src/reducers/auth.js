@@ -13,8 +13,7 @@ export default function(state = initialState, action) {
             return {isLoggedIn: true, AUTH_TOKEN: action.token}
         }
         case LOG_OUT: {
-            localStorage.setItem('isLoggedIn', false);
-            localStorage.removeItem('AUTH_TOKEN');
+            localStorage.clear();
             return {isLoggedIn: false, AUTH_TOKEN: ''}
         }
         default:

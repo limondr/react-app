@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './css/style.css';
+import './css/adaptive.css'
 import './fonts/stylesheet.css'
 
 import Registration from './pages/Registration';

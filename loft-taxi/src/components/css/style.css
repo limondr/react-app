@@ -7,10 +7,23 @@ button {
     border: none;
     outline: none;
 }
-.main_reg_entr {
-    width: 1920px;
-    height: 1080px;
+.main_entrence {
+    width: 100%;
+    height: 100vh;
     background-image: url(../img/fon.png);
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #323232;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.main_reg_entr {
+    width: 100%;
+    height: 91.5vh;
+    background-image: url(../img/fon.png);
+    -webkit-background-size: cover;
     background-repeat: no-repeat;
     background-color: #323232;
     display: flex;
@@ -19,43 +32,52 @@ button {
     flex-direction: row;
 }
 .r_e_logo {
-    width: 156px;
-    height: 37px;
+    width: 8.125%;
+    height: 3.42%;
     background: url(../img/logo.png) no-repeat;
-    margin-right: 215px;
+    background-size: contain;;
+    margin-right: 11.197%;
 }
 .block_entrance {
-    border-radius: 3px;
+    border-radius: 0.156vw ;
     background-color: rgb(255, 255, 255);
-    width: 502px;
-    height: 473px;
+    /* width: 27.083vw;
+    height: 43.796%; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .block_registration {
-    border-radius: 3px;
+    border-radius: 0.156vw ;
     background-color: rgb(255, 255, 255);
-    width: 503px;
-    height: 566px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }  
 .b_e_pad {
-    padding-left: 52px;
-    padding-right: 59px;
-    height: 87%;
+    min-width: 24.083vw;
+    padding: 2.753vw;
+    min-height: 43.796%;
+}
+.reg_b_e_pad {
+    min-width: 20.083vw;
+    padding: 3.753vw;
+    min-height: 43.796%;
 }
 .b-h2 {
-    font-size: 36px;
+    font-size: 1.875vw;
     font-family: "Adobe Clean Bold";
     color: rgb(50, 50, 50);
     font-weight: bold;
     text-align: left;
-    margin-top: 64px;
-    margin-bottom: 32px;
+    margin-bottom: 9.4%;
 }
 .b-h4 {
-    font-size: 16px;
+    font-size: 0.833vw;
     font-family: "Adobe Clean Regular";
     color: rgb(80, 80, 80);
     text-align: left;
-    margin-bottom: 47px;
+    margin-bottom: 1.038vw;
 }  
  .color-link {
      color: #1473e6;
@@ -68,30 +90,53 @@ button {
     width: 100%;
 }
 .inpt-style {
-    margin-bottom: 25px;
+    margin-bottom: 1.039vw;
 }
 input#standard-required  {
-    font-size: 15px;
+    font-size: 0.781vw;
+}
+input#standard-required::placeholder {
+    font-size: 0.781vw;
 }
 .button-entr {
-    border-radius: 4px;
+    border-radius: 0.253vw;
     background-color: rgb(255, 198, 23);
-    width: 161px;
-    height: 51px;
+    width: 100%;
+    height: 100%;
     font-family: "Adobe Clean Regular";
-    font-size: 21px;
+    font-size: 1.094vw;
     color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;;
     cursor: pointer;
-    margin-bottom: 7%;
 }
 .login_submit {
     margin-top: auto;
+    width: 41%;
+    height: 20.4%;
+    padding: 0;
+}
+.reg_submit {
+    margin-top: auto;
+    width: 54%;
+    height: 13.4%;
+    padding: 0;
+}
+label + .MuiInput-formControl {
+    margin-top: 1vw;
+}
+label#standard-required-label {
+    font-size: 0.981vw;
 }
 .login_form {
-    height: 65%;
+    height: 11vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.reg_form {
+    height: 16vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,18 +145,16 @@ input#standard-required  {
     background-color: rgb(238, 182, 12);
 }  
 .button-reg {
-    border-radius: 4px;
+    border-radius: 0.253vw;
     background-color: rgb(255, 198, 23);
-    width: 248px;
-    height: 51px;
+    width: 100%;
+    height: 100%;
     font-family: "Adobe Clean Regular";
-    font-size: 21px;
+    font-size: 1.094vw;
     color: rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
-    margin-left: auto;
     cursor: pointer;
 }
 .button-reg:hover {
@@ -128,47 +171,54 @@ input#standard-required  {
     display: flex;
 }
 .main_map {
-    width: 1920px;
-    height: 1080px;
-    background: url(../img/map.png) no-repeat;
+    width: 100vw;
+    height: 48.25vw;
+    /* background: url(../img/map.png) no-repeat; */
 }
+.mapboxgl-map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    }
 .map_nav {
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 1px 3.6px 0.4px rgba(0, 0, 0, 0.11);
-    width: 1920px;
-    height: 80px;
+    width: 100vw;
+    height: 4.167vw;
     display: flex;
     align-items: center;
 }
 .nav_logo {
-    width: 154px;
-    height: 37px;
+    width: 9.021vw;
+    height: 1.927vw;
     background: url(../img/logo2.png) no-repeat;
-    margin-left: 374px;
+    margin-left: 19.479vw;
+    background-size: cover;
 }
 .nav_list {
     display: flex;
     margin-left: auto;
-    margin-right: 357px;
+    margin-right: 18.594vw;
 }
 .style_list_nav {
-    border-radius: 2px;
-    width: 75px;
-    height: 33px;
+    border-radius: 0.104vw;
+    width: 5.906vw;
+    height: 1.719vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 5px;
+    margin-right: 0.260vw;
     cursor: pointer;
 }
 .style_list_nav:hover {
     background-color: rgb(242, 242, 242);
 }
 .card_plashka {
-    border-radius: 3px;
+    border-radius: 0.156vw;
     background-color: rgb(255, 255, 255);
-    width: 945px;
-    height: 567px;
+    width: 49.219vw;
+    height: 29.531vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -176,77 +226,78 @@ input#standard-required  {
 .h1_pl {
     font-family: "Adobe Clean Bold";
     color: rgb(50, 50, 50);
-    font-size: 36px;
-    margin-top: 63px;
+    font-size: 1.875vw;
+    margin-top: 3.281vw;
 }
 .h4_pl {
-    font-size: 16px;
+    font-size: 0.833vw;
     font-family: "Adobe Clean Regular";
     color: rgb(80, 80, 80);
-    margin-top: 10px;
+    margin-top: 0.521vw;
 }
 .card_box {
     display: flex;
     flex-direction: row;
 }
 .card {
-    border-radius: 10px;
+    border-radius: 0.521vw;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
-    width: 382px;
-    height: 230px;
-    margin-top: 49px;    
+    width: 19.896vw;
+    height: 11.979vw;
+    margin-top: 2.552vw;    
 }
 .card:first-child {
-    margin-right: 31px;
+    margin-right: 1.615vw;
 }
 .logo_card {
-    width: 55px;
-    height: 36px;
-    background: url(../img/master-cart.png);
+    width: 2.865vw;
+    height: 1.875vw;
+    background: url(../img/master-cart.png) no-repeat;
     margin-left: auto;
-    margin-right: 17px;
-    margin-top: 18px;
+    margin-right: 0.885vw;
+    margin-top: 0.938vw;
+    background-size: cover;
 }
 .box_cart_otsp {
-    padding-left: 31px;
-    padding-right: 30px;
+    padding-left: 1.615vw;
+    padding-right: 1.563vw;
     display: flex;
     flex-direction: column;
 }
 .num_cart{
-    font-size: 15px;
+    font-size: 0.781vw;
     font-family: "Adobe Clean Regular";
     color: rgb(116, 116, 116);
     /* margin-bottom: 10px; */
-    margin-bottom: 1px;
-    margin-top: 10px;
+    margin-bottom: 0.052vw;
+    margin-top: 0.521vw;
 }
 .last_cart_info{
     /* margin-top: 34px;
     display: flex;
     flex-direction: column;
     width: 115px; */
-    margin-top: 9px;
+    margin-top: 0.469vw;
     display: flex;
     flex-direction: column;
-    width: 140px;
+    width: 7.292vw;
 }
 .last_card {
-    padding-top: 59px;
-    padding-left: 31px;
-    padding-right: 30px;
+    padding-top: 3.073vw;
+    padding-left: 1.615vw;
+    padding-right: 1.563vw;
 }
 .btn-profile {
-    border-radius: 4px;
+    border-radius: 0.208vw;
     background-color: rgb(255, 198, 23);
-    width: 195px;
-    height: 51px;
+    width: 10.156vw;
+    height: 2.656vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 46px;
-    font-size: 21px;
+    margin-top: 2.396vw;
+    font-size: 1.094vw;
     font-family: "Adobe Clean Regular";
     color: rgb(0, 0, 0);
     cursor: pointer;
@@ -254,13 +305,13 @@ input#standard-required  {
 
 
 .account_section {
-    height: 1080px;
+    /* height: 52.083vw; */
 }
 /*MAP*/
 .map-wrapper {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 44vw;
 }
 .map {
     position: absolute;
@@ -269,8 +320,17 @@ input#standard-required  {
     left: 0;
     bottom: 0;
 }
-.canvas.mapboxgl-canvas {
-    height: 100vh !important;
+canvas.mapboxgl-canvas {
+    /* width: 100vw !important;
+    height: 43vw !important;*/
+} 
+.mapboxgl-canvas-container.mapboxgl-interactive.mapboxgl-touch-drag-pan.mapboxgl-touch-zoom-rotate {
+    width: 100vw;
+    height: 42.7vw;
+}
+.mapboxgl-control-container {
+    z-index: 1;
+    position: absolute;
 }
 /* .map-wrapper {
     position: relative;
@@ -288,14 +348,20 @@ input#standard-required  {
     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 .taxi_pad {
-    padding: 44px 60px;
+    padding: 2.292vw 3.125vw;
 }
 .start_taxi {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    padding-bottom: 16px;
+    padding-bottom: 0.833vw;
+}
+.MuiTypography-h4{
+    font-size: 1.771vw!important;
+}
+.MuiTypography-body1{
+    font-size: 0.833vw!important;
 }
 .MuiGrid-grid-xs-12 {
     flex-grow: 0;
@@ -356,7 +422,7 @@ input#standard-required  {
     background: #d0a215;
 }
 .search_adress {
-    height: 36px;
+    height: 1.875vw;
     display: flex;
     padding: 0;
     width: 100%;
@@ -369,20 +435,21 @@ input#standard-required  {
     width: 89%;
     outline:none;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 18px;
-    padding-right: 8px;
+    font-size: 0.938vw;
+    padding-right: 0.417vw;
     cursor: pointer;
 }
 .text_span_tax {
-    left: 2px;
-    bottom: 6px;
+    left: 0.104vw;
+    bottom: 0.313vw;
     position: absolute;
-    font-size: 16px;
+    font-size: 0.833vw;
 }
 .bottom_arrow {
     background: url(../img/down-arrow.svg) no-repeat;
-    width: 14px;
-    height: 14px;
+    width: 0.729vw;
+    height: 0.729vw;
+    background-size: cover;
 }
 .box_for_button {
     width: 9%;
@@ -394,7 +461,7 @@ input#standard-required  {
 }
 .otsp_40px {
     width: 100%;
-    height: 40px;
+    height: 2.083vw;
 }
 .box_btn_taxxxi {
     margin-top: 8%;
@@ -407,6 +474,7 @@ input#standard-required  {
 .btn_taxi_yellow {
     background-color: #ffc617;
     cursor: pointer;
+    font-size: 0.833vw!important;
 }
 .btn_taxi_grey {
     background-color: #929292;
@@ -451,4 +519,15 @@ input#standard-required  {
 }
 .heigh_taxi_oder {
     height: 42px !important;
+}
+.box_login {
+    width: 100%;
+    height: 71%;
+}
+.box_for_reg {
+    width: 100%;
+    height: 71%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

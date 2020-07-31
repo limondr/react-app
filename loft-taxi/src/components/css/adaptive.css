@@ -1,0 +1,86 @@
+/* @media (min-height:1080px) and (max-height: 1200px) {
+	.block_entrance {
+        width: 23.083vw;
+        height: 53.796%;
+    }
+}
+@media (width:1920px)  {
+	.block_entrance {
+        width: 27.083vw;
+        height: 43.796%;
+    }
+} */
+@media (min-height:1080px) and (max-height: 1100px) {
+    .main__creat {
+        height: 87.46%;
+    }
+    .dialog_main {
+        height: 32.37%;
+    }
+}
+
+
+@media (min-width:100px) and (max-width: 800px) {
+    .style_list_nav{
+        width: 9.906vw;
+    }
+    .last_card{
+        zoom: 54%!important;
+    }
+    .box_cart_otsp {
+        zoom: 54%!important;
+    }
+}
+
+
+@media (max-width:1366px) and (min-width:800px) {
+	.box_login {
+        zoom: 73%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .login_form {
+        height: 14vw;
+    }
+    .block_registration{
+        width: 34vw;
+    }
+    .reg_form {
+        height: 22vw;
+    }
+    .box_for_reg {
+        zoom: 83%;
+    }
+    .search_adress{
+        zoom: 80%;
+    }
+    .start_taxi{
+        height: 18vw;
+        display: flex;
+        align-items: center;
+    }
+    .taxi_pad {
+        padding: 3.292vw 2.125vw;
+    }
+    .last_card{
+        zoom: 73%
+    }
+    .box_cart_otsp {
+        zoom: 73%
+    }
+    .box_btn_taxxxi{
+        height: 2.615vw!important;
+    }
+    
+}
+@media (max-width:1900px) and (min-width:1600px) {
+    .box_login {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .login_form {
+        height: 13vw;
+    }
+}
